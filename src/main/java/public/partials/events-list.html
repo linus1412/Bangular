@@ -1,0 +1,14 @@
+<h1>List</h1>
+<table class="events">
+    <tr ng-repeat="event in events">
+        <td><a href="/events/{{event.id}}">{{event.description}}</a></td>
+        <td><button ng-click="delete(event.id)" class="btn btn-danger">X</button></td>
+    </tr>
+</table>
+
+        Count = <span ng-bind="events.length"></span>
+
+<form>
+    <label>Description</label> <input name="newDescription" ng-model="newDescription"/>
+    <button ng-click="add()" class="btn btn-success">Add</button>
+</form>
