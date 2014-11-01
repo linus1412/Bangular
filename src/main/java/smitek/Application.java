@@ -4,8 +4,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
+@Configuration
+// find @Component (including @Configuration)
 @ComponentScan
+// switches on reasonable default behaviors based on the content of your classpath
 @EnableAutoConfiguration
 public class Application {
 

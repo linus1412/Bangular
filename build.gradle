@@ -1,10 +1,7 @@
 buildscript {
     repositories {
-        maven {
-            url 'http://gbrdsr000000749:8081/artifactory/repo'
-        }
-        maven { url "http://repo.spring.io/libs-release" }
         mavenCentral()
+        maven { url "http://repo.spring.io/libs-release" }
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.5.RELEASE")
@@ -16,25 +13,27 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
-sourceCompatibility = 1.8
+//sourceCompatibility = 1.8
 version = '1.0'
 
 repositories {
-    maven { url "http://repo.spring.io/libs-release" }
-    maven {
-        url 'http://gbrdsr000000749:8081/artifactory/repo'
-    }
     mavenCentral()
+    maven { url "http://repo.spring.io/libs-release" }
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web:1.1.6.RELEASE")
-    compile("org.springframework.boot:spring-boot-starter-actuator")
-    compile('org.webjars:angularjs:1.2.25')
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-security")
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile("com.h2database:h2")
 
-    testCompile("junit:junit")
+    // Webjars
+    compile('org.webjars:angularjs:1.2.25')
+    compile 'org.webjars:bootstrap:3.2.0'
+
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+
+    testCompile("org.springframework.boot:spring-boot-starter-test")
 
 }
 
